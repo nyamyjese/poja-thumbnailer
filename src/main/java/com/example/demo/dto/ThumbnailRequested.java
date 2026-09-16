@@ -1,9 +1,8 @@
 package com.example.demo.dto;
 
+import com.example.demo.endpoint.event.model.PojaEvent;
 import java.time.Duration;
 import java.util.UUID;
-
-import com.example.demo.endpoint.event.model.PojaEvent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,17 +17,17 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = false)
 @ToString
 public class ThumbnailRequested extends PojaEvent {
-    private UUID submissionId;
-    private String originalKey;
-    private String email;
+  private UUID submissionId;
+  private String originalKey;
+  private String email;
 
-    @Override
-    public Duration maxConsumerDuration() {
-        return Duration.ofSeconds(60);
-    }
+  @Override
+  public Duration maxConsumerDuration() {
+    return Duration.ofSeconds(60);
+  }
 
-    @Override
-    public Duration maxConsumerBackoffBetweenRetries() {
-        return Duration.ofSeconds(30);
-    }
+  @Override
+  public Duration maxConsumerBackoffBetweenRetries() {
+    return Duration.ofSeconds(30);
+  }
 }
